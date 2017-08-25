@@ -24,6 +24,20 @@ steps {
 build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
+stage ('deploy to uat') {
+steps {
+timeout(time: 7, unit: 'DAYS') {
+     input message: 'Do you want to deploy to DEV?'
+}
+ }
+}
+stage ('Deploy to UAT') {
+steps {
+build job:'../Tomcat deploy to UAT' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
+}
+}
+
+
 
  }
  
