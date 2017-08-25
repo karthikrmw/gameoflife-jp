@@ -36,6 +36,16 @@ steps {
 build job:'../Tomcat deploy to UAT' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
+stage ('approval to deploy to prod') {
+steps {
+timeout(time: 7, unit: 'DAYS') {
+     input message: 'Do you want to deploy to PROD' , submitter: 'sheetal'
+}
+ }
+}
+stage ('Deploy to PROD') {
+steps {
+build job:'../Tomcat deploy to PROD' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 
 
 
