@@ -8,6 +8,10 @@ pipeline {
  sh 'echo "testing auto build"'
  }
  }
+stage 'approve'
+timeout(time: 7, unit: 'DAYS') {
+     input message: 'Do you want to deploy to DEV?'
+}
  }
 post {
  success {
