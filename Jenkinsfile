@@ -1,4 +1,4 @@
-pipeline {
+ipeline {
  agent any
  stages {
  stage('build') {
@@ -51,5 +51,5 @@ build job:'../Tomcat deploy to PROD' , parameters:[string(name: 'BRANCH_NAME', v
 
  }
  
-
+}
 }
