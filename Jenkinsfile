@@ -27,7 +27,7 @@ build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', va
 stage ('approval to deploy to uat') {
 steps {
 timeout(time: 7, unit: 'DAYS') {
-     input message: 'Do you want to deploy to UAT?'
+     input message: 'Do you want to deploy to UAT?' , submitter: 'sheetal'
 }
  }
 }
