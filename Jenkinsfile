@@ -12,7 +12,7 @@ true
  }
 }
 
-stage ('approve') {
+stage ('approval to deploy to dev') {
 steps {
 timeout(time: 7, unit: 'DAYS') {
      input message: 'Do you want to deploy to DEV?'
@@ -24,10 +24,10 @@ steps {
 build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
-stage ('deploy to uat') {
+stage ('approval to deploy to uat') {
 steps {
 timeout(time: 7, unit: 'DAYS') {
-     input message: 'Do you want to deploy to DEV?'
+     input message: 'Do you want to deploy to UAT?'
 }
  }
 }
