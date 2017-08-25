@@ -17,7 +17,7 @@ timeout(time: 7, unit: 'DAYS') {
 }
 stage ('Deploy to DEV') {
 steps {
-build '../Tomcat deploy to DEV ' parameters [[$class: 'StringParameterValue', name: 'BRANCH_NAME', value: ${BRANCH_NAME}]]
+build: '../Tomcat deploy to DEV ' parameters: [[$class: 'StringParameterValue', name: 'BRANCH_NAME', value: ${BRANCH_NAME}]]
 }
 }
 }
