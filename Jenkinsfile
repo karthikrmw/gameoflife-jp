@@ -6,8 +6,15 @@ pipeline {
  sh 'mvn clean package'
  sh 'echo "build ran"'
  sh 'echo "testing auto build"'
+ post {
+ success {
+ archiveArtifacts artifacts: 'gameoflife-web/target/gameoflife.war', fingerprint:
+true
+
  }
  }
+}
+}
 stage ('approve') {
 steps {
 timeout(time: 7, unit: 'DAYS') {
@@ -20,12 +27,8 @@ steps {
 build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
-}
-post {
- success {
- archiveArtifacts artifacts: 'gameoflife-web/target/gameoflife.war', fingerprint:
-true
+
  }
- }
+ 
 
 }
