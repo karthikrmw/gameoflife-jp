@@ -6,9 +6,8 @@ pipeline {
  sh 'mvn clean package'
  sh 'echo "build ran"'
  sh 'echo "testing auto build"'
- archiveArtifacts artifacts: 'gameoflife-web/target/gameoflife.war', fingerprint:
+ archiveArtifacts artifacts: 'gameoflife-web/target/gameoflife.war', fingerprint:true
  junit '**/target/surefire-reports/*.xml'
-true
 
  }
 }
