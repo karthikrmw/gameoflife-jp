@@ -37,7 +37,7 @@ steps {
 build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
-
+milestone 1
 stage ('test') {
 agent {node{
  label "abc"}
@@ -47,6 +47,7 @@ steps {
 input message: 'Deploy to uat'
 }
 }
+
 
 stage ('approval to deploy to uat ') {
 agent {node{
@@ -68,6 +69,8 @@ steps {
 build job:'../Tomcat deploy to UAT' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
+
+milestone 2
 stage ('approval to deploy to prod') {
 agent {node{
  label "abc"}
