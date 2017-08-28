@@ -1,7 +1,11 @@
 pipeline {
  stages {
  stage('build') {
- steps {
+agent {node{
+ label "abc"}
+}
+ 
+steps {
  sh 'mvn clean package'
  sh 'echo "build ran"'
  sh 'echo "testing auto build"'
