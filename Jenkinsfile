@@ -26,10 +26,13 @@ build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', va
 }
 
 stage ('test') {
-node
-{}
+
+
 steps {
 input message: 'Deploy to uat'
+}
+node{
+ sh 'echo "this is a test"'
 }
 }
 stage ('approval to deploy to uat ') {
