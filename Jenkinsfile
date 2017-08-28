@@ -1,5 +1,6 @@
 pipeline {
- stages {
+agent any 
+stages {
  stage('build') {
 agent {node{
  label "abc"}
@@ -32,9 +33,6 @@ agent {node{
 }
 
 steps {
-agent {node{
- label "abc"}
-}
 
 build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
