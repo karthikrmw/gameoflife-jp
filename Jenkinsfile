@@ -24,6 +24,8 @@ steps {
 build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
+
+input message: 'Deploy to uat'
 stage ('approval to deploy to uat ') {
 steps {
 timeout(time: 7, unit: 'DAYS') {
