@@ -26,8 +26,9 @@ build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', va
 }
 
 stage ('test') {
-agent node{
+agent {node{
  label "abc"}
+}
 
 steps {
 input message: 'Deploy to uat'
