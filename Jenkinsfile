@@ -66,7 +66,7 @@ agent {node{
 
 steps {
 build job:'../Tomcat deploy to UAT' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
-milestone()
+milestone(1)
 }
 
 }
