@@ -7,6 +7,7 @@ pipeline {
  sh 'echo "build ran"'
  sh 'echo "testing auto build"'
  archiveArtifacts artifacts: 'gameoflife-web/target/gameoflife.war', fingerprint:
+ junit '**/target/surefire-reports/*.xml'
 true
 
  }
