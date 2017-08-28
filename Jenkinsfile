@@ -15,7 +15,7 @@ true
 stage ('approval to deploy to dev') {
 steps {
 timeout(time: 7, unit: 'DAYS') {
-     input message: 'Do you want to deploy to DEV?' , submitter: 'sheetal'
+     input message: 'Do you want to deploy to DEV? ' , submitter: 'sheetal'
 }
  }
 }
