@@ -1,5 +1,4 @@
 pipeline {
- agent any
  stages {
  stage('build') {
  steps {
@@ -13,6 +12,10 @@ pipeline {
 }
 
 stage ('approval to deploy to dev') {
+agent {node{
+ label "abc"}
+}
+
 steps {
 timeout(time: 7, unit: 'DAYS') {
      input message: 'Do you want to deploy to DEV? ' , submitter: 'sheetal'
@@ -20,7 +23,15 @@ timeout(time: 7, unit: 'DAYS') {
  }
 }
 stage ('Deploy to DEV') {
+agent {node{
+ label "abc"}
+}
+
 steps {
+agent {node{
+ label "abc"}
+}
+
 build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
@@ -36,6 +47,10 @@ input message: 'Deploy to uat'
 }
 
 stage ('approval to deploy to uat ') {
+agent {node{
+ label "abc"}
+}
+
 steps {
 timeout(time: 7, unit: 'DAYS') {
      input message: 'Do you want to deploy to UAT?',submitter: 'sheetal'
@@ -43,11 +58,19 @@ timeout(time: 7, unit: 'DAYS') {
  }
 }
 stage ('Deploy to UAT') {
+agent {node{
+ label "abc"}
+}
+
 steps {
 build job:'../Tomcat deploy to UAT' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
 stage ('approval to deploy to prod') {
+agent {node{
+ label "abc"}
+}
+
 steps {
 timeout(time: 7, unit: 'DAYS') {
      input message: 'Do you want to deploy to PROD',submitter: 'sheetal'
@@ -56,6 +79,10 @@ timeout(time: 7, unit: 'DAYS') {
 }
 
 stage ('Deploy to PROD') {
+agent {node{
+ label "abc"}
+}
+
 steps {
 build job:'../Tomcat deploy to PROD' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 
