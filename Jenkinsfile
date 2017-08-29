@@ -15,7 +15,8 @@ node{
 
 timeout(time: 7, unit: 'DAYS')
 } 
-     input message: 'Do you want to deploy to DEV? ' , submitter: 'sheetal'
+sh 'echo "in approvalstep"'     
+input message: 'Do you want to deploy to DEV? ' , submitter: 'sheetal'
 
  }
 
