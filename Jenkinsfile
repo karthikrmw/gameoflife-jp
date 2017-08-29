@@ -16,6 +16,17 @@ steps {
  }
 }
 
+stage ('Run sonar analysis') {
+agent {node{
+ label "abc"}
+}
+
+steps {
+sh 'echo "running sonar analysis"'
+sh 'mvn sonar:sonar'
+}
+}
+
 stage ('approval to deploy to dev') {
 agent none
 
