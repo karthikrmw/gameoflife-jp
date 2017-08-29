@@ -23,7 +23,7 @@ agent {node{
 
 steps {
 sh 'echo "running sonar analysis"'
-sh 'mvn sonar:sonar -Dsonar.host.url=http://10.1.118.23:9000'
+sh 'mvn sonar:sonar -Dsonar.host.url=http://10.1.118.23:9000 -Dsonar.branch="${env.BRANCH_NAME}"
 }
 }
 
