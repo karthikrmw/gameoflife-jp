@@ -9,7 +9,6 @@ node{
 
  }
 }
-#milestone 1
 stage ('approval to deploy to dev') {
 node{
 
