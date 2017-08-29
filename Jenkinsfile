@@ -10,13 +10,14 @@ node{
  }
 }
 stage ('approval to deploy to dev') {
+input message: 'Do you want to deploy to DEV? ' , submitter: 'sheetal'
 node{
 
 
 timeout(time: 7, unit: 'DAYS')
-} 
+ 
 sh 'echo "in approvalstep"'     
-input message: 'Do you want to deploy to DEV? ' , submitter: 'sheetal'
+}
 
  }
 
