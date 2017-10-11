@@ -63,9 +63,6 @@
 <body>
 <<<<<<< HEAD
 <h2>Welcome to Conway's Game Of Life! - develop  </h2>
-=======
-<h2>Welcome to Conway's Game Of Life! - release 1.0  </h2>
->>>>>>> adacd3edbcac07b710339c8213eec184085a0719
 
 <div class="intro">
     <p>This is a really cool web version of Conway's famous Game Of
