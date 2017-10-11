@@ -39,8 +39,6 @@ input message: 'Deploy to uat'
 
 
 stage ('approval to deploy to uat ') {
-agent {node{
- label "abc"}
 }
 
 steps {
