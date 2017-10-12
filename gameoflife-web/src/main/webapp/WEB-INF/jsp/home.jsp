@@ -8,7 +8,7 @@
     <!--  TODO: Don't inline this -->
     <style type="text/css">
         h2 {
-            color: red;
+            color: blue;
             font-family: sans-serif;
         }
 
@@ -26,7 +26,7 @@
             color: white;
             font-size: medium;
             text-align: right;
-            background-color: red;
+            background-color: blue;
             margin-top: 100px;
             border-top: thin solid black;
             padding: 2px;
@@ -60,8 +60,8 @@
 
     </style>
 </head>
-<body>
-<<<<<<< HEAD
+<body style="background-color:yellow;">
+
 <h2>Welcome to Conway's Game Of Life! - develop  </h2>
 
 <div class="intro">
