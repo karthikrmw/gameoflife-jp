@@ -34,7 +34,7 @@ agent {node{
 
 steps {
 sh 'bats --tap test.bat >output.tap'
-[$class: "TapPublisher", testResults: "output.tap"]
+step([class: "TapPublisher", testResults: "output.tap"])
 
 }
 
