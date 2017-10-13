@@ -80,7 +80,7 @@
             caused by underpopulation.
         </li>
         <li>Any live cell with more than three live neighbours dies, as if
-            by overcrowding.
+            by overcrowded.
         </li>
         <li>Any live cell with two or three live neighbours lives on to
             the next generation.
