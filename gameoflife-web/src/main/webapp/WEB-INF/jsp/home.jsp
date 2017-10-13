@@ -60,7 +60,7 @@
 
     </style>
 </head>
-<body style="background-color:yellow;">
+<body style="background-color:white">
 
 <h2>Welcome to Conway's Game Of Life! - develop  </h2>
 
