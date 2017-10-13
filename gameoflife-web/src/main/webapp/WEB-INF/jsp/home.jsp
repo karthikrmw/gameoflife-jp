@@ -1,4 +1,4 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.io.InputStream" %>
 <%@page import="java.io.IOException" %>
 <%@page import="java.util.Properties" %>
@@ -60,7 +60,7 @@
 
     </style>
 </head>
-<body style="background-color:white">
+<body style="background-color:yellow">
 
 <h2>Welcome to Conway's Game Of Life! - develop  </h2>
 
