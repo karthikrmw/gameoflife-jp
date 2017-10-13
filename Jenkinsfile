@@ -27,7 +27,19 @@ steps {
 build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
+stage ('Smoke test') {
+agent {node{
+ label "abc"}
+}
 
+steps {
+sh 'bats --tap test.bat >output.tap'
+[$class: "TapPublisher", testResults: "output.tap"]
+
+milestone(1)
+}
+
+}
 stage ('approval to deploy to uat ') {
 
 
