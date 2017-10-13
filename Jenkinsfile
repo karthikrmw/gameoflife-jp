@@ -36,7 +36,6 @@ steps {
 sh 'bats --tap test.bat >output.tap'
 [$class: "TapPublisher", testResults: "output.tap"]
 
-milestone(1)
 }
 
 }
