@@ -1,4 +1,4 @@
-%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.io.InputStream" %>
 <%@page import="java.io.IOException" %>
 <%@page import="java.util.Properties" %>
@@ -80,7 +80,7 @@
             caused by underpopulation.
         </li>
         <li>Any live cell with more than three live neighbours dies, as if
-            by overcrowded.
+            by overcrowding.
         </li>
         <li>Any live cell with two or three live neighbours lives on to
             the next generation.

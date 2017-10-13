@@ -17,17 +17,17 @@ steps {
 }
 
 
-stage ('Deploy to DEV') {
+stage ('Deploy to Integration') {
 agent {node{
  label "abc"}
 }
 
 steps {
 
-build job:'../Tomcat deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
+build job:'../Tomcat deploy to Integration' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
 }
 }
-stage ('Smoke test') {
+stage ('UI test') {
 agent {node{
  label "abc"}
 }
@@ -39,7 +39,7 @@ step([$class: "TapPublisher", testResults: "output.tap"])
 }
 
 }
-stage ('approval to deploy to uat ') {
+stage ('Approval to deploy to UAT ') {
 
 
 steps {
@@ -60,7 +60,7 @@ milestone(1)
 
 }
 
-stage ('approval to deploy to prod') {
+stage ('Approval to deploy to PROD') {
 
 steps {
 timeout(time: 7, unit: 'DAYS') {
