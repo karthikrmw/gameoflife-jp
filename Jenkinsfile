@@ -24,7 +24,7 @@ pipeline {
             }
 
             steps {
-                build job:'Deploy GOL' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
+                build job:'../Deployment Plans/Deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
             }
         }
 
