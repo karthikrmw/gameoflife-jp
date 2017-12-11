@@ -24,14 +24,14 @@ pipeline {
             }
 
             steps {
-                build job:'../Deployment Plans/Deploy to DEV' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
+                build job:'../Deployment Plans/Deploy to INT' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
             }
         }
 
         stage ('Approval to deploy to UAT ') {
             steps {
                 timeout(time: 7, unit: 'DAYS') {
-                    input message: 'Do you want to deploy to UAT?',submitter: 'sheetal'
+                    input message: 'Do you want to deploy to UAT?',submitter: 'admin'
                 }
             }
         }
@@ -42,7 +42,7 @@ pipeline {
             }
 
             steps {
-                build job:'../Tomcat deploy to UAT' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
+                build job:'../Deployment Plans/Deploy to UAT' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
                 milestone(1)
             }
         }
@@ -51,7 +51,7 @@ pipeline {
 
             steps {
                 timeout(time: 7, unit: 'DAYS') {
-                    input message: 'Do you want to deploy to PROD',submitter: 'sheetal'
+                    input message: 'Do you want to deploy to PROD',submitter: 'admin'
                 }
             }
         }
@@ -62,9 +62,8 @@ pipeline {
             }
 
             steps {
-                build job:'../Tomcat deploy to PROD' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
+                build job:'../Deployment Plans/Deploy to PROD' , parameters:[string(name: 'BRANCH_NAME', value: "${env.BRANCH_NAME}")]
             }
-
         }
     }
 }
