@@ -28,18 +28,6 @@ pipeline {
             }
         }
 
-        stage ('UI test') {
-            agent {node{
-                label "abc"}
-            }
-
-            steps {
-                sh 'bats --tap test.bat >output.tap'
-                step([$class: "TapPublisher", testResults: "output.tap"])
-
-            }
-        }
-
         stage ('Approval to deploy to UAT ') {
             steps {
                 timeout(time: 7, unit: 'DAYS') {
